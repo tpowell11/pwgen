@@ -31,7 +31,7 @@ rustup toolchain install stable-x86_64-pc-windows-gnu
 The first tells `cargo` that a new target architecture is availible, and specifies *what* the toolchain is.
 The second command actually installs the toolchain components. 
 
-## Useage
+## Usage
 When run in a terminal on Linux, or by double-clicking `pwgen.exe` in a Windows file explorer the following prompt will display:
 ```
 Enter service name:
@@ -48,3 +48,4 @@ however the program is not designed for this so the security of the storage is u
 ## Maintenence
 Since the program works and dosen't have issues that I am aware of, this release is more-or-less prepetual. 
 If there is some super urgent security concern that I am made aware of, I will fix them and post a new version.
+I plan to eventuall make a release for Mac, but don't have any way to test it and don't want to add to the list of current broken software. 
