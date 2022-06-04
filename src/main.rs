@@ -6,7 +6,7 @@ use rand::prelude::*;
 use rand_chacha::ChaCha20Rng; 
 
 fn main() {
-    loop {
+    //loop {
         println!("Enter service name: ");
         let mut name = String::new();
         let mut pwd = String::new();
@@ -20,7 +20,7 @@ fn main() {
         }
         let mut rng = ChaCha20Rng::seed_from_u64(seed as u64);
         let mut hasher = Sha256::new();
-        hasher.input_str(&name.pop().unwrap().to_string()); //strip "\n"
+        hasher.input_str(&name.trim().to_string()); //strip "\n"
         for (i, ch) in hasher.result_str().chars().enumerate(){
             if i % 4 == 0 {
                 let ind = rng.gen_range(0..choice.len());
@@ -41,5 +41,5 @@ fn main() {
         };
         println!("Service:  {}", name);
         println!("Password: {}", pwd)
-    } 
+    //} 
 }
