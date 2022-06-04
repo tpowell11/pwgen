@@ -39,6 +39,8 @@ _
 ```
 At this point, enter whatever phrase you wish to associate with the service that the password is for.
 The program will then prompt for a length. Enter this and press enter, and the program will print the generated password to the console.
+```
+
 This can then be copied and pasted into whatever application needs the password.
 
 Given the same input, the program will always produce the same password, 
