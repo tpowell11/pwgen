@@ -4,13 +4,15 @@ use std::io;
 use rand::Rng;
 use rand::prelude::*;
 use rand_chacha::ChaCha20Rng; 
+use clipboard::{ClipboardProvider,ClipboardContext};
 
 fn main() {
+    let choice = vec!['!','@','#','$','%','^','&','*','(',')','[',']','|','~','<','>',',','.'];
+    let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
     loop {
         println!("Enter service name: ");
         let mut name = String::new();
         let mut pwd = String::new();
-        let choice = vec!['!','@','#','$','%','^','&','*','(',')','[',']','|','~','<','>',',','.'];
         let mut seed: u32 = 0;
         io::stdin()
             .read_line(&mut name)
@@ -41,6 +43,8 @@ fn main() {
         };
         println!("Service:  {}", name);
         println!("Password: {}", pwd);
+        ctx.set_contents(pwd).unwrap();
+        println!("Password copied to clipboard");
         println!("--------------");
     } 
 }
