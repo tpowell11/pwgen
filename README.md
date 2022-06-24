@@ -1,7 +1,3 @@
-# DO NOT USE
-Major error in current release, looking into it
-
-
 # pwgen
 A simple command line password generator written in rust.
 
