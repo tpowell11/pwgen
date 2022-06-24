@@ -4,11 +4,11 @@ use std::io;
 use rand::Rng;
 use rand::prelude::*;
 use rand_chacha::ChaCha20Rng; 
-use clipboard::{ClipboardProvider,ClipboardContext};
+//use clipboard::{ClipboardProvider,ClipboardContext}; //!NYI
 
 fn main() {
     let choice = vec!['!','@','#','$','%','^','&','*','(',')','[',']','|','~','<','>',',','.'];
-    let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
+    //let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
     loop {
         println!("Enter service name: ");
         let mut name = String::new();
@@ -22,7 +22,7 @@ fn main() {
         }
         let mut rng = ChaCha20Rng::seed_from_u64(seed as u64);
         let mut hasher = Sha256::new();
-        hasher.input_str(&name.pop().unwrap().to_string()); //strip "\n"
+        hasher.input_str(&name.trim_end()); 
         for (i, ch) in hasher.result_str().chars().enumerate(){
             if i % 4 == 0 {
                 let ind = rng.gen_range(0..choice.len());
@@ -43,8 +43,8 @@ fn main() {
         };
         println!("Service:  {}", name);
         println!("Password: {}", pwd);
-        ctx.set_contents(pwd).unwrap();
-        println!("Password copied to clipboard");
-        println!("--------------");
+        //ctx.set_contents(pwd).unwrap();
+        //println!("Password copied to clipboard");
+        //println!("--------------");
     } 
 }
